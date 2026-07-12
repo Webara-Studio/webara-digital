@@ -27,3 +27,31 @@ Search `UPDATE` in `index.html` for the spots to replace:
 
 ## Deploy
 GitHub Pages is enabled on the `main` branch, so changes pushed here appear at the URL above automatically.
+
+
+## 📈 Marketing & Promotion Plans
+
+### Ghana Market Launch
+We've created comprehensive promotion plans for the Ghana market:
+
+- **[Lean Mode Plan](promotion-plan-lean.md)** - GHS 25,000/month (~$2,500 USD)
+  - Organic growth focused
+  - No paid ads initially
+  - Break-even by month 2
+
+- **[Full Plan](promotion-plan.md)** - GHS 120,000/month (~$12,000 USD)
+  - Paid ads included
+  - Full-scale launch
+
+- **[Quick Summary](promotion-plan-summary.md)** - Executive overview
+
+### Key Strategy
+1. **Google First** - Local SEO + Business Profile
+2. **Instagram Second** - Visual portfolio + Reels
+3. **Facebook Third** - Community + groups
+
+### Target Budget
+**Lean: GHS 25,000/month** - Perfect for startup phase
+**Scaling: GHS 60,000/month** - Add paid ads when ready
+
+---
