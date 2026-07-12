@@ -23,6 +23,7 @@
       <a class="brand" href="#top">Webara <b>Digital</b></a>
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
         <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
@@ -73,6 +74,43 @@
           <div class="icon">@</div>
           <h3>Professional Email</h3>
           <p>Your own professional email address (you@yourbusiness.com) so customers everywhere take you seriously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our work</span>
+        <h2>Recent projects</h2>
+        <p class="lead">A selection of websites and apps we've built for clients across Ghana and beyond.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#d95326,#e0b152)">📱</div>
+          <div class="portfolio-body">
+            <h3>AfroBall Connect</h3>
+            <p>African football streaming platform with savanna-themed design and OTT video experience.</p>
+            <div class="tag-row"><span class="tag">Web App</span><span class="tag">Streaming</span><span class="tag">UI/UX</span></div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1d2930,#293a42)">🛒</div>
+          <div class="portfolio-body">
+            <h3>E-Commerce Platform</h3>
+            <p>Full online store with payment integration, inventory management, and WhatsApp ordering.</p>
+            <div class="tag-row"><span class="tag">E-Commerce</span><span class="tag">Payments</span><span class="tag">Mobile</span></div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal">
+          <div class="portfolio-thumb" style="background:linear-gradient(135deg,#223239,#364349)">🏨</div>
+          <div class="portfolio-body">
+            <h3>Hospitality Booking</h3>
+            <p>Hotel booking system with real-time availability, multi-language support, and guest management.</p>
+            <div class="tag-row"><span class="tag">Booking</span><span class="tag">Multi-language</span><span class="tag">SEO</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -138,6 +176,45 @@
         <div class="step"><div class="num">2</div><h3>Design</h3><p>You see a design and approve it before we build.</p></div>
         <div class="step"><div class="num">3</div><h3>Build</h3><p>We build, test, and polish your site or app.</p></div>
         <div class="step"><div class="num">4</div><h3>Launch &amp; maintain</h3><p>We go live and keep it running for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Client stories</span>
+        <h2>Trusted by businesses across Ghana</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <p class="quote">"Webara Digital built our website in two weeks. We started getting orders from Accra and Kumasi the same month. Professional, fast, and they actually understand the Ghanaian market."</p>
+          <div class="testimonial-author">
+            <div class="avatar">KM</div>
+            <div><strong>Kwesi Mensah</strong><br><span class="muted-text">Owner, Mensah Printing Services</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote">"Our Instagram went from 200 followers to over 3,000 in four months. The team handles everything — we just focus on running the business."</p>
+          <div class="testimonial-author">
+            <div class="avatar">AB</div>
+            <div><strong>Abena Boateng</strong><br><span class="muted-text">Founder, Boateng Fashion House</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote">"The booking app they built replaced our paper system completely. Customers can now reserve online and we get WhatsApp notifications instantly."</p>
+          <div class="testimonial-author">
+            <div class="avatar">KO</div>
+            <div><strong>Kofi Owusu</strong><br><span class="muted-text">Manager, Owusu Logistics</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-bar reveal">
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects delivered</div></div>
+        <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Years experience</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Mobile-ready</div></div>
+        <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Avg response time</div></div>
       </div>
     </div>
   </section>
@@ -218,6 +295,17 @@
         });
       }
     })();
+
+    // Scroll reveal animations
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
     function sendMessage(e){
       e.preventDefault();
       var name=encodeURIComponent(document.getElementById('name').value);
