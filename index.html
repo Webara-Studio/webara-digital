@@ -151,15 +151,17 @@
         <p class="lead">Tell us about your business. We'll reply within 2 working days.</p>
       </div>
       <div class="contact-grid">
-        <!-- UPDATE: this form opens the visitor's email client. Swap for Formspree/Netlify later if you want it to send directly. -->
-        <form onsubmit="sendMessage(event)">
+        <!-- Formspree-powered form. Replace the form ID in the action URL after signing up at formspree.io -->
+        <form id="contactForm" action="https://formspree.io/f/WEARA_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry from Webara Digital">
           <label for="name">Your name</label>
-          <input id="name" type="text" required placeholder="Jane Mensah">
+          <input id="name" name="name" type="text" required placeholder="Jane Mensah">
           <label for="email">Your email</label>
-          <input id="email" type="email" required placeholder="jane@business.com">
+          <input id="email" name="email" type="email" required placeholder="jane@business.com">
           <label for="message">What do you need?</label>
-          <textarea id="message" required placeholder="I need a website and Instagram for my shop..."></textarea>
-          <button class="btn btn-gold" type="submit">Send enquiry</button>
+          <textarea id="message" name="message" required placeholder="I need a website and Instagram for my shop..."></textarea>
+          <button class="btn btn-gold" type="submit" id="submitBtn">Send enquiry</button>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
         </form>
         <div class="contact-side">
           <p>Prefer to write directly? Reach us below. As part of your project we'll also set up your <strong>professional email</strong> so customers everywhere can trust you.</p>
@@ -218,15 +220,41 @@
         });
       }
     })();
-    function sendMessage(e){
-      e.preventDefault();
-      var name=encodeURIComponent(document.getElementById('name').value);
-      var email=encodeURIComponent(document.getElementById('email').value);
-      var msg=encodeURIComponent(document.getElementById('message').value);
-      var subject='New enquiry from '+name;
-      var body='Name: '+name+'%0AEmail: '+email+'%0A%0A'+msg;
-      // UPDATE: replace hello@webaradigital.com with your real inbox
-      window.location.href='mailto:hello@webaradigital.com?subject='+encodeURIComponent(subject)+'&body='+body;
+    // Contact form — AJAX submit via Formspree
+    var form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = document.getElementById('submitBtn');
+        var status = document.getElementById('formStatus');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        status.className = 'form-status';
+        status.textContent = '';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function(res) {
+          if (res.ok) {
+            form.reset();
+            btn.textContent = 'Send enquiry';
+            btn.disabled = false;
+            status.className = 'form-status success';
+            status.textContent = '✓ Thank you! We\'ll reply within 2 working days.';
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function() {
+          btn.textContent = 'Send enquiry';
+          btn.disabled = false;
+          status.className = 'form-status error';
+          status.textContent = 'Something went wrong. Please email hello@webaradigital.com directly.';
+        });
+      });
     }
   </script>
 </body>

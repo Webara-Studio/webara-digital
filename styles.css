@@ -118,6 +118,11 @@ textarea{resize:vertical;min-height:120px}
 .theme-toggle{font-family:var(--font-sub);font-weight:600;font-size:.9rem;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;color:var(--cream);cursor:pointer;transition:border-color .2s,color .2s;white-space:nowrap}
 .theme-toggle:hover{border-color:var(--gold);color:var(--gold)}
 
+/* Form status feedback */
+.form-status{font-family:var(--font-body);font-size:.92rem;padding:10px 0;min-height:1.2em;opacity:0;transition:opacity .2s}
+.form-status.success{color:#4ade80;opacity:1}
+.form-status.error{color:var(--accent);opacity:1}
+
 /* Footer */
 .footer{border-top:1px solid var(--border);padding:34px 0;color:var(--muted);font-size:.9rem}
 .footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
