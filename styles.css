@@ -1,14 +1,16 @@
 :root{
-  --bg:#131C20;
-  --bg-2:#18242A;
+  --bg:#1d2930;
+  --bg-2:#293a42;
   --card:#223239;
   --gold:#E0B152;
   --gold-2:#ecd09a;
+  --accent:#d95326;
   --cream:#E4DDCD;
-  --muted:#9fb0b3;
+  --muted:#d2c6ac;
+  --muted-2:#9fb0b3;
   --border:rgba(228,221,205,.12);
-  --nav-bg:rgba(19,28,32,.85);
-  --font-head:'Cinzel',serif;
+  --nav-bg:rgba(29,41,48,.85);
+  --font-head:'Montserrat',sans-serif;
   --font-sub:'Montserrat',sans-serif;
   --font-body:'Lato',sans-serif;
   --max:1120px;
@@ -21,8 +23,10 @@
   --card:#FFFFFF;
   --gold:#B07D12;
   --gold-2:#E0B152;
+  --accent:#c14a22;
   --cream:#1B2329;
-  --muted:#51606A;
+  --muted:#3a4750;
+  --muted-2:#51606A;
   --border:rgba(27,35,41,.14);
   --nav-bg:rgba(255,255,255,.92);
 }

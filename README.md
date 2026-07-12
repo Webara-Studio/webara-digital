@@ -1,4 +1,4 @@
-# Webara Digital
+# Webara Digital — Ghana Web Design
 
 Ghana's leading web designer. We build websites, web apps, and full online presence to win customers worldwide.
 
