@@ -19,9 +19,8 @@ Everything is plain HTML + CSS — no build step. Open `index.html` in any edito
 - **Pricing:** the "From GHS 5,000" figure and add-on list are in the `#pricing` section.
 
 ## Before you go live — fill these in
-1. **Formspree form ID** — sign up at [formspree.io](https://formspree.io), create a form, then replace `WEARA_FORM_ID` in the form `action` URL in `index.html`.
-2. Contact email (`hello@webaradigital.com`) — used in the contact card and error fallback.
-3. WhatsApp number (`wa.me/233000000000`).
+1. Contact email (`hello@webaradigital.com`) — used in the contact card and error fallback.
+2. WhatsApp number (`wa.me/233000000000`).
 
 ## Deploy
 GitHub Pages is enabled on the `main` branch, so changes pushed here appear at the URL above automatically.

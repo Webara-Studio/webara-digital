@@ -151,8 +151,7 @@
         <p class="lead">Tell us about your business. We'll reply within 2 working days.</p>
       </div>
       <div class="contact-grid">
-        <!-- Formspree-powered form. Replace the form ID in the action URL after signing up at formspree.io -->
-        <form id="contactForm" action="https://formspree.io/f/WEARA_FORM_ID" method="POST">
+        <form id="contactForm">
           <input type="hidden" name="_subject" value="New enquiry from Webara Digital">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" required placeholder="Jane Mensah">
@@ -220,7 +219,7 @@
         });
       }
     })();
-    // Contact form — AJAX submit via Formspree
+    // Contact form — submits to Webara's own mail API (Listmonk list #3)
     var form = document.getElementById('contactForm');
     if (form) {
       form.addEventListener('submit', function(e) {
@@ -232,10 +231,15 @@
         status.className = 'form-status';
         status.textContent = '';
 
-        fetch(form.action, {
+        fetch('https://db.cryptosidao.org/mail-api/api/enquiry', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            list_id: 3
+          })
         })
         .then(function(res) {
           if (res.ok) {
