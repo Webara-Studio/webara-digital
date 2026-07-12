@@ -8,6 +8,10 @@ Live site: https://webara-studio.github.io/webara-digital/
 - `index.html` — the whole site (single page: hero, services, global reach, pricing, process, contact)
 - `styles.css` — all styling, using the Webara Studio brand (dark `#131C20`, gold `#E0B152`, cream `#E4DDCD`, card `#223239`) and the Webara fonts (Cinzel / Montserrat / Lato)
 
+## Features
+- **Responsive** — collapses to a single column on phones, with a slide-down menu (hamburger, top-right).
+- **Dark / light mode** — toggle in the footer; choice is saved in `localStorage` and respects the visitor's system preference on first visit. Theme variables live in the `[data-theme="light"]` block in `styles.css`.
+
 ## How to edit
 Everything is plain HTML + CSS — no build step. Open `index.html` in any editor:
 - **Colours / fonts:** change the values in the `:root` block at the top of `styles.css`.

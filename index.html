@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set theme before paint to avoid a flash -->
+  <script>
+    (function(){try{var s=localStorage.getItem('wd-theme');var t=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
   <!-- UPDATE: set your own title + meta description -->
   <title>Webara Digital — Ghana's Leading Web Designer</title>
   <meta name="description" content="Webara Digital builds websites, web apps, and full online presence for businesses in Ghana and worldwide. Professional email, Instagram and Facebook management. From GHS 5,000.">
@@ -17,12 +21,13 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top">Webara <b>Digital</b></a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
       <a class="btn btn-gold" href="#contact">Start a project</a>
     </div>
   </header>
@@ -178,10 +183,41 @@
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false">Switch to light mode</button>
     </div>
   </footer>
 
   <script>
+    (function(){
+      var root=document.documentElement;
+      function syncLabel(){
+        var t=root.getAttribute('data-theme');
+        var btn=document.getElementById('themeToggle');
+        if(btn){ btn.textContent=(t==='light')?'Switch to dark mode':'Switch to light mode'; btn.setAttribute('aria-pressed', t==='light'?'false':'true'); }
+      }
+      syncLabel();
+      var tb=document.getElementById('themeToggle');
+      if(tb){ tb.addEventListener('click',function(){
+        var cur=root.getAttribute('data-theme');
+        var next=(cur==='light')?'dark':'light';
+        root.setAttribute('data-theme',next);
+        try{localStorage.setItem('wd-theme',next);}catch(e){}
+        syncLabel();
+      }); }
+      // Mobile nav
+      var t=document.querySelector('.nav-toggle');
+      var m=document.getElementById('navLinks');
+      if(t&&m){
+        t.addEventListener('click',function(){
+          var open=m.classList.toggle('open');
+          t.setAttribute('aria-expanded', open?'true':'false');
+          t.setAttribute('aria-label', open?'Close menu':'Open menu');
+        });
+        m.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click',function(){ m.classList.remove('open'); t.setAttribute('aria-expanded','false'); });
+        });
+      }
+    })();
     function sendMessage(e){
       e.preventDefault();
       var name=encodeURIComponent(document.getElementById('name').value);
