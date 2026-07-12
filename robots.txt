@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webara-studio.github.io/webara-digital/sitemap.xml
