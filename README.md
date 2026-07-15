@@ -20,10 +20,10 @@ Everything is plain HTML + CSS — no build step. Open `index.html` in any edito
 
 ## Before you go live — fill these in
 Search `UPDATE` in `index.html` for the spots to replace:
-1. Contact email (`hello@webaradigital.com`) — used by the form and the contact card.
-2. WhatsApp number (`wa.me/233000000000`).
+1. Contact email (`hello@webaradigital.com`) — used by the direct contact card.
+2. WhatsApp number (`+44 7773 854138`) — currently wired into the CTAs and enquiry form; replace it if a dedicated business number is preferred.
 3. Page `<title>` and meta description.
-4. To make the form send without opening the visitor's email app, swap the `mailto:` handler for Formspree or Netlify Forms.
+4. The enquiry form currently opens a pre-filled WhatsApp message to the configured number.
 
 ## Deploy
 GitHub Pages is enabled on the `main` branch, so changes pushed here appear at the URL above automatically.
