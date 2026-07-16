@@ -110,6 +110,9 @@ section{padding:72px 0}
 /* Pricing */
 .price-amount{font-family:var(--font-head);font-size:clamp(2.6rem,7vw,4rem);color:var(--gold);line-height:1}
 .price-note{color:var(--muted);margin-top:8px;text-align:center}
+.payment-note{max-width:720px;margin:24px auto 0;padding:16px 20px;border:1px solid rgba(224,177,82,.35);border-radius:var(--radius);background:rgba(224,177,82,.08);display:grid;gap:5px;text-align:left}
+.payment-note strong{font-family:var(--font-sub);color:var(--gold)}
+.payment-note span{color:var(--muted);font-size:.95rem}
 .pricing-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:40px;align-items:start}
 .included,.addons{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
 .addons{background:var(--bg-2)}
