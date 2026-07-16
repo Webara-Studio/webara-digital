@@ -18,6 +18,8 @@ Everything is plain HTML + CSS — no build step. Open `index.html` in any edito
 - **Words:** edit the text directly in `index.html`.
 - **Pricing:** the "From GHS 5,000" figure and add-on list are in the `#pricing` section.
 
+- **Legal pages:** `privacy.html` and `terms.html` are linked from the homepage footer.
+
 ## Before you go live — review these
 1. Direct contact email: `oswald@cryptosi.org`.
 2. WhatsApp number (`+44 7773 854138`) — currently wired into the CTAs and enquiry form; replace it if a dedicated business number is preferred.
