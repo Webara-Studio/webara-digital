@@ -6,11 +6,11 @@ Live site: https://webara-studio.github.io/webara-digital/
 
 ## What's in this repo
 - `index.html` — the whole site (single page: hero, services, global reach, pricing, process, contact)
-- `styles.css` — all styling, using the Webara Studio brand (dark `#131C20`, gold `#E0B152`, cream `#E4DDCD`, card `#223239`) and the Webara fonts (Cinzel / Montserrat / Lato)
+- `styles.css` — all styling, using the Webara Studio brand (dark `#1D2930`, slate `#203037`, gold `#E0B152`, cream `#E4DDCD`, card `#32404D`) and the Webara fonts (Montserrat / Lato)
 
 ## Features
 - **Responsive** — collapses to a single column on phones, with a slide-down menu (hamburger, top-right).
-- **Dark / light mode** — toggle in the footer; choice is saved in `localStorage` and respects the visitor's system preference on first visit. Theme variables live in the `[data-theme="light"]` block in `styles.css`.
+- **Dark Webara Studio visual system** — consistent charcoal/slate foundation, gold CTA accents and Montserrat/Lato typography.
 
 ## How to edit
 Everything is plain HTML + CSS — no build step. Open `index.html` in any editor:
