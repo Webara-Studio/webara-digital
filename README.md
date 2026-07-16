@@ -18,12 +18,11 @@ Everything is plain HTML + CSS — no build step. Open `index.html` in any edito
 - **Words:** edit the text directly in `index.html`.
 - **Pricing:** the "From GHS 5,000" figure and add-on list are in the `#pricing` section.
 
-## Before you go live — fill these in
-Search `UPDATE` in `index.html` for the spots to replace:
-1. Contact email (`hello@webaradigital.com`) — used by the direct contact card.
+## Before you go live — review these
+1. Direct contact email: `oswald@cryptosi.org`.
 2. WhatsApp number (`+44 7773 854138`) — currently wired into the CTAs and enquiry form; replace it if a dedicated business number is preferred.
 3. Page `<title>` and meta description.
-4. The enquiry form currently opens a pre-filled WhatsApp message to the configured number.
+4. The enquiry form opens a pre-filled WhatsApp message to the configured number.
 
 ## Deploy
 GitHub Pages is enabled on the `main` branch, so changes pushed here appear at the URL above automatically.
