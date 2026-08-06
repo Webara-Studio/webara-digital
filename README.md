@@ -16,7 +16,7 @@ Live site: https://webara-studio.github.io/webara-digital/
 Everything is plain HTML + CSS — no build step. Open `index.html` in any editor:
 - **Colours / fonts:** change the values in the `:root` block at the top of `styles.css`.
 - **Words:** edit the text directly in `index.html`.
-- **Pricing:** the "From GHS 5,000" figure and add-on list are in the `#pricing` section.
+- **Pricing:** the "From GHS 7,500" figure and add-on list are in the `#pricing` section.
 
 - **Legal pages:** `privacy.html` and `terms.html` are linked from the homepage footer.
 
