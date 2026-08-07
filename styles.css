@@ -141,6 +141,10 @@ textarea{resize:vertical;min-height:120px}
 .footer a{color:var(--muted)}
 .footer a:hover{color:var(--gold)}
 .footer .flinks{display:flex;gap:20px;font-family:var(--font-sub);font-size:.9rem}
+.footer-credit{display:inline-flex;align-items:center;gap:8px;text-decoration:none!important;color:var(--muted)!important;font-family:var(--font-sub);font-size:.82rem}
+.footer-credit img{width:28px;height:28px;object-fit:contain;border-radius:7px}
+.footer-credit strong{color:var(--cream);font-weight:600}
+.footer-credit:hover strong{color:var(--gold)}
 
 /* Responsive */
 @media(max-width:760px){
