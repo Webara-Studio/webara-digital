@@ -169,8 +169,8 @@ textarea{resize:vertical;min-height:120px}
 .footer-credit:hover strong{color:var(--gold)}
 
 /* Responsive */
-@media(max-width:760px){
-  section{padding:56px 0}
+/* Nav collapses earlier: 6 links + CTA button need ~1050px */
+@media(max-width:1020px){
   .nav-toggle{display:block}
   .nav-links{
     display:none;
@@ -184,9 +184,31 @@ textarea{resize:vertical;min-height:120px}
   .nav-links.open{display:flex}
   .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);width:100%}
   .nav-links a:last-child{border-bottom:none}
+}
+@media(max-width:900px){
+  .audit-scores{grid-template-columns:repeat(2,1fr)}
+  .process-layout,.process-layout .steps{grid-template-columns:1fr}
+  .process-layout>figure,.process-layout>div{min-width:0}
+}
+@media(max-width:400px){
+  .audit-scores{gap:10px}
+  .score{padding:16px 8px}
+  .score-num{font-size:1.7rem}
+  .score-num span{font-size:.72rem}
+  .score-label{font-size:.7rem;letter-spacing:.1em}
+}
+@media(max-width:350px){
+  .audit-scores{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  section{padding:56px 0}
   .band .container,.pricing-grid,.contact-grid{grid-template-columns:1fr}
   .audit-example{padding:24px 18px}
-  .audit-scores{grid-template-columns:repeat(2,1fr)}
+  .audit-example-cta{flex-direction:column;align-items:stretch}
+  .audit-example-cta .btn{text-align:center}
+  .audit-price{width:100%;text-align:center;box-sizing:border-box}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer .flinks{flex-wrap:wrap;justify-content:center;gap:12px 20px}
   .band h2{text-align:center}
   .process-layout,.process-layout .steps{grid-template-columns:1fr}
   .hero{padding:72px 0 56px}
