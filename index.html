@@ -364,16 +364,50 @@
     (function(){
       var track=document.getElementById('portfolioTrack');
       if(!track)return;
+      var section=document.getElementById('portfolio');
+      var motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+      var direction=1;
+      var timer=null;
+      function cardDistance(){
+        var card=track.querySelector('.portfolio-card');
+        if(!card)return 0;
+        var gap=parseFloat(window.getComputedStyle(track).columnGap)||0;
+        return card.getBoundingClientRect().width+gap;
+      }
+      function advance(){
+        var max=track.scrollWidth-track.clientWidth;
+        if(max<=1)return;
+        var next=track.scrollLeft+cardDistance()*direction;
+        if(next>=max-2){next=max;direction=-1;}
+        else if(next<=2){next=0;direction=1;}
+        track.scrollTo({left:next,behavior:motion.matches?'auto':'smooth'});
+      }
+      function pause(){
+        if(timer){window.clearInterval(timer);timer=null;}
+        var position=track.scrollLeft;
+        var originalBehavior=track.style.scrollBehavior;
+        track.style.scrollBehavior='auto';
+        track.scrollTo({left:position,behavior:'auto'});
+        track.style.scrollBehavior=originalBehavior;
+      }
+      function resume(){
+        if(motion.matches||timer||(section&&section.matches(':hover')))return;
+        timer=window.setInterval(advance,4500);
+      }
       document.querySelectorAll('[data-portfolio-direction]').forEach(function(button){
         button.addEventListener('click',function(){
-          var card=track.querySelector('.portfolio-card');
-          if(!card)return;
-          var gap=parseFloat(window.getComputedStyle(track).columnGap)||0;
-          var distance=card.getBoundingClientRect().width+gap;
-          var reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          track.scrollBy({left:distance*Number(button.getAttribute('data-portfolio-direction')),behavior:reducedMotion?'auto':'smooth'});
+          var distance=cardDistance();
+          if(!distance)return;
+          track.scrollBy({left:distance*Number(button.getAttribute('data-portfolio-direction')),behavior:motion.matches?'auto':'smooth'});
         });
       });
+      if(section){
+        section.addEventListener('mouseenter',pause);
+        section.addEventListener('mouseleave',resume);
+      }
+      if(motion.addEventListener)motion.addEventListener('change',function(){if(motion.matches)pause();else resume();});
+      else if(motion.addListener)motion.addListener(function(){if(motion.matches)pause();else resume();});
+      resume();
     })();
     function sendMessage(e){
       e.preventDefault();
