@@ -19,6 +19,7 @@
       <a class="brand" href="#top">Webara <b>Digital</b></a>
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#audit">Website Audit</a>
         <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
@@ -76,6 +77,46 @@
           <h3>Professional Email</h3>
           <p>Your own professional email address (you@yourbusiness.com) so customers everywhere take you seriously.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Selected work</span>
+        <h2>Websites we've created</h2>
+        <p class="lead">A selection of digital experiences built for businesses and organisations.</p>
+      </div>
+      <div class="portfolio-toolbar">
+        <p class="portfolio-hint" id="portfolioHint">Scroll to explore all five projects</p>
+        <div class="portfolio-controls" aria-label="Portfolio carousel controls">
+          <button class="portfolio-arrow" type="button" data-portfolio-direction="-1" aria-label="Scroll portfolio left">&#8592;</button>
+          <button class="portfolio-arrow" type="button" data-portfolio-direction="1" aria-label="Scroll portfolio right">&#8594;</button>
+        </div>
+      </div>
+      <div class="portfolio-track" id="portfolioTrack" tabindex="0" aria-label="Five selected website projects. Scroll horizontally to explore.">
+        <article class="portfolio-card">
+          <div class="portfolio-image-placeholder" role="img" aria-label="Website image placeholder for project 1"><span>Website image placeholder</span></div>
+          <div class="portfolio-card-copy"><span class="portfolio-index">PROJECT 01</span><h3>Website project</h3></div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-image-placeholder" role="img" aria-label="Website image placeholder for project 2"><span>Website image placeholder</span></div>
+          <div class="portfolio-card-copy"><span class="portfolio-index">PROJECT 02</span><h3>Website project</h3></div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-image-placeholder" role="img" aria-label="Website image placeholder for project 3"><span>Website image placeholder</span></div>
+          <div class="portfolio-card-copy"><span class="portfolio-index">PROJECT 03</span><h3>Website project</h3></div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-image-placeholder" role="img" aria-label="Website image placeholder for project 4"><span>Website image placeholder</span></div>
+          <div class="portfolio-card-copy"><span class="portfolio-index">PROJECT 04</span><h3>Website project</h3></div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-image-placeholder" role="img" aria-label="Website image placeholder for project 5"><span>Website image placeholder</span></div>
+          <div class="portfolio-card-copy"><span class="portfolio-index">PROJECT 05</span><h3>Website project</h3></div>
+        </article>
       </div>
     </div>
   </section>
@@ -287,6 +328,7 @@
       <div>&copy; 2026 Webara Digital · Ghana's leading web designer</div>
       <nav class="flinks">
         <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#audit">Website Audit</a>
         <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
@@ -318,6 +360,20 @@
           a.addEventListener('click',function(){ m.classList.remove('open'); t.setAttribute('aria-expanded','false'); });
         });
       }
+    })();
+    (function(){
+      var track=document.getElementById('portfolioTrack');
+      if(!track)return;
+      document.querySelectorAll('[data-portfolio-direction]').forEach(function(button){
+        button.addEventListener('click',function(){
+          var card=track.querySelector('.portfolio-card');
+          if(!card)return;
+          var gap=parseFloat(window.getComputedStyle(track).columnGap)||0;
+          var distance=card.getBoundingClientRect().width+gap;
+          var reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          track.scrollBy({left:distance*Number(button.getAttribute('data-portfolio-direction')),behavior:reducedMotion?'auto':'smooth'});
+        });
+      });
     })();
     function sendMessage(e){
       e.preventDefault();
