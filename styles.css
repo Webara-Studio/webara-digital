@@ -26,17 +26,19 @@ h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:.5rem}
 h3{font-family:var(--font-sub);font-size:1.15rem;color:var(--gold);letter-spacing:.01em}
 p{color:var(--cream)}
 section{padding:72px 0}
+section[id]:not(#top){scroll-margin-top:80px}
 .lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
 
 /* Nav */
 .nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background .25s}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{font-family:var(--font-head);font-size:1.3rem;color:var(--cream);font-weight:700}
+.brand{font-family:var(--font-head);font-size:1.3rem;color:var(--cream);font-weight:700;white-space:nowrap}
 .brand b{color:var(--gold);font-weight:700}
-.nav-links{display:flex;gap:28px;font-family:var(--font-sub);font-weight:500;font-size:.95rem}
-.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links{display:flex;gap:16px;font-family:var(--font-sub);font-weight:500;font-size:.9rem}
+.nav-links a{color:var(--muted);transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--gold)}
-.nav-toggle{display:none;margin-left:auto;background:none;border:none;color:var(--cream);font-size:1.6rem;line-height:1;cursor:pointer;padding:6px 8px}
+.nav-inner>.btn{flex-shrink:0;white-space:nowrap;padding:11px 16px;font-size:.9rem}
+.nav-toggle{display:none;margin-left:auto;background:none;border:none;color:var(--cream);font-size:1.6rem;line-height:1;cursor:pointer;width:48px;height:48px;flex:0 0 48px;padding:0}
 .btn{display:inline-block;font-family:var(--font-sub);font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:transform .15s,background .2s,color .2s}
 .btn-gold{background:var(--gold);color:#1a1206}
 .btn-gold:hover{background:var(--gold-2);transform:translateY(-1px)}
@@ -201,9 +203,10 @@ textarea{resize:vertical;min-height:120px}
 .footer-credit:hover strong{color:var(--gold)}
 
 /* Responsive */
-/* Nav collapses earlier: 6 links + CTA button need ~1050px */
-@media(max-width:1020px){
-  .nav-toggle{display:block}
+/* Collapse before the full desktop navigation and CTA become cramped. */
+@media(max-width:1110px){
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+  .nav-inner>.btn{display:none}
   .nav-links{
     display:none;
     position:absolute;top:66px;left:0;right:0;
